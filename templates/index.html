@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            min-height: 100vh;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        table{
+            size: 90%;
+        }
+        table, tr, td {
+            border: 1px solid black;
+        }
+        tr, td{
+            padding: 20px;
+        }
+        .preco{
+            background-color: red;
+            color: white;
+        }
+        .butao{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <a class="butao" href='/add'>
+        <button>Adicionar produto</button>
+    </a>
+    <table>
+        <tr>
+            <td> Nome </td>
+            <td>Preço</td>
+        </tr>
+        {% for nome, preco in produtos %}
+            <tr>
+                <td>
+                    <a href='/info/{{loop.index0}}'>
+                        {{nome}}
+                    </a>
+                </td>
+                <td class="preco"> {{preco}}  </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
